@@ -35,6 +35,7 @@ class Student implements Comparable<Student> {
 
   public int compareTo ( Student other) {
     // compares this student object with another student object based on student ID
+    // returns 0 if they are equal
     return studentNumber.compareTo(other.studentNumber);
   }
 
