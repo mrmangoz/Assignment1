@@ -21,7 +21,7 @@ class AccessArrayApp {
     }
   }
 
-  private static Student[] buildList(ReadFile file) {
+  public static Student[] buildList(ReadFile file) {
     /*
       Takes in ReadFile object, then builds the list of Student objects
     */
