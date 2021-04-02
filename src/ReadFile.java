@@ -11,7 +11,7 @@ public class ReadFile {
       try {
         File studentData = new File("data/oklist.txt");
         Scanner scanner = new Scanner(studentData);
-        System.out.println(studentData.getAbsolutePath());
+        //System.out.println(studentData.getAbsolutePath());
         //String this.sList[] = new String[5000];
         int listCounter = 0;
         while (scanner.hasNextLine()) {
@@ -28,7 +28,7 @@ public class ReadFile {
       return this.sList;
     }
 
-  public void compareID(String studentID) {
+  /*public void compareID(String studentID) {
     String [] idList = this.getList();
 
     for (int i=0; i<5000;i++){
@@ -39,7 +39,9 @@ public class ReadFile {
     }
 
     System.out.println("Access Denied!");
-  }
+  }*/
+
+
 
 
 
