@@ -31,6 +31,8 @@ class AccessBSTApp {
   }
 
   public static void printStudent(BinarySearchTree<Student> bSTStudent, Student otherStudent) {
+    int count = 0;
+    count ++;
     if (bSTStudent.find(otherStudent) != null) {
       bSTStudent.visit(bSTStudent.find(otherStudent));
     } else {

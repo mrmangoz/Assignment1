@@ -52,14 +52,15 @@ class AccessArrayApp {
       with overloaded constructor that takes in only student ID. Uses the .getFirstName and .getLastName methods from
       Student class to print first and last names.
     */
+    int count = 0; // instrumentation
     for (int i=0; i<5000; i++) {
+      opcount ++;
       if (studentList[i].compareTo(otherStudent) == 0) {
         System.out.println(studentList[i].getFirstName() + " " + studentList[i].getLastName());
+        System.out.println(opcount);
         return;
       }
     }
     System.out.println("Access denied!");
-
-
   }
 }
