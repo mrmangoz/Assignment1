@@ -17,3 +17,5 @@ runarray: $(CLASS_FILES)
 	java -cp bin AccessArrayApp
 runbst: $(CLASS_FILES)
 	java -cp bin AccessBSTApp
+doc:
+	javadoc -d docs src/*
