@@ -5,32 +5,38 @@ class Student implements Comparable<Student> {
   */
 
   String studentNumber;
-  String firstName;
-  String lastName;
+  String name;
+  //String firstName;
+  //String lastName;
 
-  public Student (String s, String f, String l) {
+  public Student (String s, String n) {
     studentNumber = s;
-    firstName = f;
-    lastName = l;
+    name = n;
+    //firstName = f;
+    //lastName = l;
   }
 
   public Student (String s) {
     studentNumber = s;
   }
 
-  public String getFirstName () {
+  /*public String getFirstName () {
     // returns fist name
     return firstName;
-  }
+  }*/
 
-  public String getLastName () {
+  /*public String getLastName () {
     // returns last name
     return lastName;
+  }*/
+
+  public String getName() {
+    return name;
   }
 
   public String toString() {
     // returns studen ID, first name and last name in a string
-    return studentNumber + " " + firstName + " " + lastName;
+    return studentNumber + " " + name;
   }
 
   public int compareTo ( Student other) {

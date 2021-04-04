@@ -27,14 +27,15 @@ class AccessArrayApp {
     /*
       Takes in ReadFile object, then builds the list of Student objects
     */
-    String[] studentListRaw = file.getList(); // calls ReadFile method getList to create a String list of all
+    String[][] studentListRaw = file.getList(); // calls ReadFile method getList to create a String list of all
                                               // student numbers and names
     Student[] studentObjectList = new Student[5000]; // creates a temporary list of Student object to be returned
     for (int i=0; i<5000;i++){
-      String studentNumber = studentListRaw[i].split(" ")[0]; // uses .split to get student ID
-      String firstName = studentListRaw[i].split(" ")[1]; // uses .split to get first name
-      String lastName = studentListRaw[i].split(" ")[2]; // uses .split to get last name
-      studentObjectList[i] = new Student(studentNumber, firstName, lastName); // creates new Student object with student ID, first name and last name
+      String studentNumber = studentListRaw[i][0]; // uses .split to get student ID
+      String name = studentListRaw[i][1];
+      //String firstName = studentListRaw[i].split(" ")[1]; // uses .split to get first name
+      //String lastName = studentListRaw[i].split(" ")[2]; // uses .split to get last name
+      studentObjectList[i] = new Student(studentNumber, name); // creates new Student object with student ID, first name and last name
     }
     return studentObjectList; // returns the temporary list of Student object
   }
@@ -60,7 +61,7 @@ class AccessArrayApp {
     for (int i=0; i<5000; i++) {
       count ++;
       if (studentList[i].compareTo(otherStudent) == 0) {
-        System.out.println(studentList[i].getFirstName() + " " + studentList[i].getLastName());
+        System.out.println(studentList[i].getName()); //getFirstName() + " " + studentList[i].getLastName());
         //System.out.println(count);
         WriteFile("data/AccessArrayAppCount.txt", Integer.toString(count));
         return;
