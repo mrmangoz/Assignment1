@@ -1,3 +1,9 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+import java.io.IOException;
+import java.io.FileWriter;
+
 class AccessBSTApp {
   public static void main (String args[]) {
     ReadFile file = new ReadFile();
@@ -31,9 +37,9 @@ class AccessBSTApp {
   }
 
   public static void printStudent(BinarySearchTree<Student> bSTStudent, Student otherStudent) {
-    int count = 0;
-    count ++;
+    CreateCountFile("data/AccessBSTAppCount.txt");
     if (bSTStudent.find(otherStudent) != null) {
+      WriteFile("data/AccessBSTAppCount.txt", Integer.toString(bSTStudent.getCount()));
       bSTStudent.visit(bSTStudent.find(otherStudent));
     } else {
       System.out.println("Access denied!");
@@ -47,5 +53,21 @@ class AccessBSTApp {
       Prints all student ID, first name and last name from the given list of Student objects
     */
     bSTStudent.inOrder(); // prints all students in order
+  }
+
+  public static void CreateCountFile(String filePath) {
+      File tempFile = new File(filePath);
+  }
+
+  public static void WriteFile(String filePath, String data) {
+    try {
+      FileWriter fileWriter = new FileWriter(filePath);
+      fileWriter.write(data);
+      fileWriter.close();
+    } catch (IOException e) {
+      System.out.println("Error occured.");
+    }
+
+
   }
 }

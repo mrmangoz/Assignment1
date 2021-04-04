@@ -4,6 +4,7 @@
 
 public class BinarySearchTree<dataType extends Comparable<? super dataType>> extends BinaryTree<dataType>
 {
+  int count = 0;
    public void insert ( dataType d )
    {
       if (root == null)
@@ -28,9 +29,10 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
             insert (d, node.right);
       }
    }
-   
+
    public BinaryTreeNode<dataType> find ( dataType d )
    {
+      count ++;
       if (root == null)
          return null;
       else
@@ -38,18 +40,19 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
    }
    public BinaryTreeNode<dataType> find ( dataType d, BinaryTreeNode<dataType> node )
    {
-      if (d.compareTo (node.data) == 0) 
+      count ++;
+      if (d.compareTo (node.data) == 0)
          return node;
       else if (d.compareTo (node.data) < 0)
          return (node.left == null) ? null : find (d, node.left);
       else
          return (node.right == null) ? null : find (d, node.right);
    }
-   
+
    public void delete ( dataType d )
    {
       root = delete (d, root);
-   }   
+   }
    public BinaryTreeNode<dataType> delete ( dataType d, BinaryTreeNode<dataType> node )
    {
       if (node == null) return null;
@@ -69,7 +72,7 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
             node = node.right;
       return node;
    }
-   
+
    public BinaryTreeNode<dataType> findMin ( BinaryTreeNode<dataType> node )
    {
       if (node != null)
@@ -90,5 +93,9 @@ public class BinarySearchTree<dataType extends Comparable<? super dataType>> ext
       else
          return node.right;
    }
-   
+
+   public int getCount() {
+     return count;
+   }
+
 }

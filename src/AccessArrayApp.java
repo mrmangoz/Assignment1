@@ -1,6 +1,8 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.io.IOException;
+import java.io.FileWriter;
 //import ReadFile;
 
 class AccessArrayApp {
@@ -53,14 +55,33 @@ class AccessArrayApp {
       Student class to print first and last names.
     */
     int count = 0; // instrumentation
+    CreateCountFile("data/AccessArrayAppCount.txt");
+
     for (int i=0; i<5000; i++) {
-      opcount ++;
+      count ++;
       if (studentList[i].compareTo(otherStudent) == 0) {
         System.out.println(studentList[i].getFirstName() + " " + studentList[i].getLastName());
-        System.out.println(opcount);
+        //System.out.println(count);
+        WriteFile("data/AccessArrayAppCount.txt", Integer.toString(count));
         return;
       }
     }
     System.out.println("Access denied!");
+  }
+
+  public static void CreateCountFile(String filePath) {
+      File tempFile = new File(filePath);
+  }
+
+  public static void WriteFile(String filePath, String data) {
+    try {
+      FileWriter fileWriter = new FileWriter(filePath);
+      fileWriter.write(data);
+      fileWriter.close();
+    } catch (IOException e) {
+      System.out.println("Error occured.");
+    }
+
+
   }
 }
