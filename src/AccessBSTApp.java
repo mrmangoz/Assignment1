@@ -38,9 +38,9 @@ class AccessBSTApp {
   }
 
   public static void printStudent(BinarySearchTree<Student> bSTStudent, Student otherStudent) {
-    CreateCountFile("data/AccessBSTAppCount.txt");
+    CreateCountFile("data/instrumentation/AccessBSTAppCount.txt");
     if (bSTStudent.find(otherStudent) != null) {
-      WriteFile("data/AccessBSTAppCount.txt", Integer.toString(bSTStudent.getCount()));
+      WriteFile("data/instrumentation/AccessBSTAppCount.txt", Integer.toString(bSTStudent.getCount()));
       System.out.println(bSTStudent.find(otherStudent).getData().getName());
     } else {
       System.out.println("Access denied!");

@@ -56,14 +56,14 @@ class AccessArrayApp {
       Student class to print first and last names.
     */
     int count = 0; // instrumentation
-    CreateCountFile("data/AccessArrayAppCount.txt");
+    CreateCountFile("data/instrumentation/AccessArrayAppCount.txt");
 
     for (int i=0; i<5000; i++) {
       count ++;
       if (studentList[i].compareTo(otherStudent) == 0) {
         System.out.println(studentList[i].getName()); //getFirstName() + " " + studentList[i].getLastName());
         //System.out.println(count);
-        WriteFile("data/AccessArrayAppCount.txt", Integer.toString(count));
+        WriteFile("data/instrumentation/AccessArrayAppCount.txt", Integer.toString(count));
         return;
       }
     }
