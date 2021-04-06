@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.FileWriter;
 
 /**
-  *Main method that handles command-line arguments, prints all students or single student name..
-  *@author: Ciaran Manca
+  * Main method that handles command-line arguments, prints all students or single student name.
+  * Counts the number of comparison operations done while searching and outputs to a text file.
+  * Uses Student class and ReadFile class.
+  * @author Ciaran Manca
   */
 public class AccessArrayApp {
   public static void main (String args[]) {
@@ -23,7 +25,8 @@ public class AccessArrayApp {
   }
 
   /**
-   * Takes in ReadFile object, then builds the list of Student objects
+   * Takes in ReadFile object, then builds the list of Student objects from that
+   * and returns an array of Student objects.
    * @param file ReadFile object used to populate Student list.
    */
   public static Student[] buildList(ReadFile file) {
@@ -34,38 +37,37 @@ public class AccessArrayApp {
       if (studentListRaw[i][0] == null) {
         break;
       }
-      String studentNumber = studentListRaw[i][0]; // uses .split to get student ID
+      String studentNumber = studentListRaw[i][0];
       String name = studentListRaw[i][1];
-      //String firstName = studentListRaw[i].split(" ")[1]; // uses .split to get first name
-      //String lastName = studentListRaw[i].split(" ")[2]; // uses .split to get last name
       studentObjectList[i] = new Student(studentNumber, name); // creates new Student object with student ID, first name and last name
     }
     return studentObjectList; // returns the temporary list of Student object
   }
 
+  /**
+   * Prints all student ID, first name and last name from the given list of Student objects.
+   * @param studentList Array of Student object.
+   */
   public static void printAllStudents(Student[] studentList) {
-    /*
-      Prints all student ID, first name and last name from the given list of Student objects
-    */
     for (int i=0; i<5000;i++){
       System.out.println(studentList[i]);
     }
   }
 
+  /**
+   * Prints matching Student first name and last name for the given student ID in the form of another Student object.
+   * Uses the getName method from Student class to print first and last names.
+   * Writes operation counter to output file.
+   * @param studentList Array of Student objects.
+   * @param otherStudent A single Student object.
+   */
   public static void printStudent(Student[] studentList, Student otherStudent) {
-    /*
-      Prints matching Student first name and last name for the given student ID. Makes a new Student object
-      with overloaded constructor that takes in only student ID. Uses the .getFirstName and .getLastName methods from
-      Student class to print first and last names.
-    */
     int count = 0; // instrumentation
     CreateCountFile("data/instrumentation/AccessArrayAppCount.txt");
-
     for (int i=0; i<5000; i++) {
       count ++;
       if (studentList[i].compareTo(otherStudent) == 0) {
-        System.out.println(studentList[i].getName()); //getFirstName() + " " + studentList[i].getLastName());
-        //System.out.println(count);
+        System.out.println(studentList[i].getName());
         WriteFile("data/instrumentation/AccessArrayAppCount.txt", Integer.toString(count));
         return;
       }
@@ -73,10 +75,19 @@ public class AccessArrayApp {
     System.out.println("Access denied!");
   }
 
+  /**
+   * Method for creating new file to write operation counter to.
+   * @param filePath String containing the path for the file to be created.
+   */
   public static void CreateCountFile(String filePath) {
       File tempFile = new File(filePath);
   }
 
+  /**
+   * Method for writing the operation counter to a file.
+   * @param filePath String containing the path to the desired file to write to.
+   * @param data String to be written to file.
+   */
   public static void WriteFile(String filePath, String data) {
     try {
       FileWriter fileWriter = new FileWriter(filePath);
