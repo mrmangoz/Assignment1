@@ -1,5 +1,3 @@
-
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -33,6 +31,9 @@ public class AccessArrayApp {
                                               // student numbers and names
     Student[] studentObjectList = new Student[5000]; // creates a temporary list of Student object to be returned
     for (int i=0; i<5000;i++){
+      if (studentListRaw[i][0] == null) {
+        break;
+      }
       String studentNumber = studentListRaw[i][0]; // uses .split to get student ID
       String name = studentListRaw[i][1];
       //String firstName = studentListRaw[i].split(" ")[1]; // uses .split to get first name
