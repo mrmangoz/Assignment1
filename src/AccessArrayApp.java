@@ -1,15 +1,16 @@
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileWriter;
-//import ReadFile;
 
-class AccessArrayApp {
-  /*
-    Main program for outputting all students and finding specific student from students
-    ID given.
+/**
+  *Main method that handles command-line arguments, prints all students or single student name..
+  *@author: Ciaran Manca
   */
+public class AccessArrayApp {
   public static void main (String args[]) {
     ReadFile file = new ReadFile(); // creates ReadFile object for accessing oklist.txt
     Student[] studentList = new Student[5000]; // creates list of Student object
@@ -23,10 +24,11 @@ class AccessArrayApp {
     }
   }
 
+  /**
+   * Takes in ReadFile object, then builds the list of Student objects
+   * @param file ReadFile object used to populate Student list.
+   */
   public static Student[] buildList(ReadFile file) {
-    /*
-      Takes in ReadFile object, then builds the list of Student objects
-    */
     String[][] studentListRaw = file.getList(); // calls ReadFile method getList to create a String list of all
                                               // student numbers and names
     Student[] studentObjectList = new Student[5000]; // creates a temporary list of Student object to be returned

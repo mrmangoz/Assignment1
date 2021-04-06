@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.FileWriter;
 
-class AccessBSTApp {
+public class AccessBSTApp {
   public static void main (String args[]) {
     ReadFile file = new ReadFile();
     BinarySearchTree<Student> bSTStudent = new BinarySearchTree<Student> ();

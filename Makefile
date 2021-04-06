@@ -18,4 +18,4 @@ runarray: $(CLASS_FILES)
 runbst: $(CLASS_FILES)
 	java -cp bin AccessBSTApp
 doc:
-	javadoc -d docs src/*
+	javadoc -d docs src/*.java

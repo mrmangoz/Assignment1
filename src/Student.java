@@ -1,35 +1,24 @@
-class Student implements Comparable<Student> {
-  /*
-    Student class to create student objects that hold student ID, first name and last name.
-    Implents Comparable to compare two student objects.
-  */
+/**
+ * Student class to create student objects that hold student ID, first name and last name.
+ * Implents Comparable to compare two student objects.
+ */
+public class Student implements Comparable<Student> {
 
   String studentNumber;
   String name;
-  //String firstName;
-  //String lastName;
 
   public Student (String s, String n) {
     studentNumber = s;
     name = n;
-    //firstName = f;
-    //lastName = l;
   }
 
   public Student (String s) {
     studentNumber = s;
   }
 
-  /*public String getFirstName () {
-    // returns fist name
-    return firstName;
-  }*/
-
-  /*public String getLastName () {
-    // returns last name
-    return lastName;
-  }*/
-
+  /**
+   * @return Student first and last name in format "firstname last name"
+   */
   public String getName() {
     return name;
   }

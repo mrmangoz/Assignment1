@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class ReadFile {
-  /*
+  /**
     ReadFile class for handling reading text file. Has method to return a String list
     of student ID, first name and surname.
   */
@@ -14,7 +14,7 @@ public class ReadFile {
     }
 
     public String[][] getList() {
-      /*
+      /**
         returns String list of oklist.txt. List format is ["studentid firstname lastname", "studentid firstname lastname",...]
       */
       try {
